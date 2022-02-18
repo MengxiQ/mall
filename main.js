@@ -7,6 +7,9 @@ Vue.config.productionTip = false
 
 App.mpType = 'app'
 
+//事件总线
+Vue.prototype.$EventBus = new Vue()
+
 const app = new Vue({
     ...App
 })

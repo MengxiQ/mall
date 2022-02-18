@@ -1,29 +1,34 @@
 <template>
-	<view class="container">
-		
-		<view class="intro">本项目已包含uni ui组件，无需import和注册，可直接使用。在代码区键入字母u，即可通过代码助手列出所有可用组件。光标置于组件名称处按F1，即可查看组件文档。</view>
-		<text class="intro">详见：</text>
-		<uni-link :href="href" :text="href"></uni-link>
+	<view class="index-container">
+		<layout>
+			<home-header></home-header>
+			<home-main></home-main>
+		</layout>
 	</view>
 </template>
 
 <script>
+	import homeHeader from './home-header/home-header'
+	import homeMain from './home-main/home-main.vue'
 	export default {
+		components:{homeHeader,homeMain},
 		data() {
 			return {
-				href: 'https://uniapp.dcloud.io/component/README?id=uniui'
+				src: process.env['VUE_APP_BASE_URL'] + 'images/home/home-banner.jpg'
 			}
 		},
 		methods: {
 
+		},
+		mounted() {
+			console.log(process.env)
 		}
 	}
 </script>
 
-<style>
-	.container {
-		padding: 20px;
-		font-size: 14px;
-		line-height: 24px;
-	}
+<style lang="scss" scoped>
+.index-container{
+	//这里应该没有颜色，点击tab的时候改变父组件的背景
+	background-color: $header-bg-color;
+}
 </style>
